@@ -62,51 +62,80 @@ and far from perfect, but is shown here to share.
         child { node {Torque Effectiveness and Pedal Smoothness}}
     }
     child[concept color=blue] {
-      node[concept] {\href{http://texwelt.de}{\TeX welt\\.de}}
-        [clockwise from=30]
+      node[concept] {Bicycle Speed and Cadence}
+        [clockwise from=360]
       child { node[concept] (TeXnique)
-        {\href{http://texnique.fr}{\TeX nique\\.fr}} }
+        {Speed Sensor} 
+        [clockwise from=20]
+          child {node {Latest Speed Event Time}} 
+          child {node {Cumulative Wheel Revolutions}}
+          child {node {Stopped flag}}
+        }
       child { node[concept] (TeXweltQA)
-        {\href{http://texwelt.de/wissen/}{Fragen~\& Antworten}} }
-      child { node[concept] (TeXweltBlog)
-        {\href{http://texwelt.de/blog/}{User blog} }}
+        {Cadence Sensor} 
+          child {node {Latest Cadence Event Time}} 
+          child {node {Cumulative Pedal Revolutions}}
+          child {node {Stopped flag}}
+        }
     }
     child[concept color=green!40!black] {
-      node[concept] {\href{http://texample.net/}{\TeX ample\\.net}}
-        [clockwise from=310]
+      node[concept] {Blood Pressure}
+        [clockwise from=350]
       child { node[concept] (TikZGalerie) 
-        {\href{http://texample.net/tikz/examples/}{TikZ-Galerie}} }
+        {Systolic} }
       child { node[concept] (TeXampleBlog)
-        {\href{http://texample.net/weblog/}{Blog}} }
+        {Diastolic} }
       child { node[concept] (Planet)
-        {\href{http://texample.net/community/}{Planet}} }
+        {Heart Rate} }
+      child { node[concept] (Planet)
+        {Timestamp} }        
+      child { node[concept] (Planet)
+        {Mean Arterial} }  
+      child { node[concept] (Planet)
+        {Morning / evening} }  
+      child { node[concept] (Planet)
+        {Heart Rate} }          
     }
     child[concept color=red] {
-      node[concept] (PGFPlots) {\href{http://pgfplots.net}{PGFPlots\\.net}}
-      [clockwise from=270]
-    }
+      node[concept] (PGFPlots) {Heart Rate Monitor}
+      [clockwise from=260]
+        child { node[concept] {Last Heart Beat} 
+        }
+        child { node[concept] {Time of Previous Heart Beat} 
+        }
+        child { node[concept] {Heart Beat Count} 
+        }
+        child { node[concept] {Heart Rate} 
+        }
+      }
     child[concept color=red!60!black] {
-      node[concept] {\href{http://latex-community.org/}{\LaTeX-Community\\.org}}
-        [counterclockwise from=100]
+      node[concept] {Muscle Oxygen Monitor}
+      [clockwise from=220]
       child { node[concept] (LaTeXForum)
-        {\href{http://latex-community.org/forum/}{Forum}}}
+        {Hemoglobin Concentration}}
       child { node[concept] (LaTeXArtikel)
-        {\href{http://latex-community.org/know-how}{Artikel-Archiv}} }
+        {Saturated Hemoglobin} }
       child { node[concept] (LaTeXNews)
-        {\href{http://latex-community.org/home/news}{News}} }
+        {Capabilities}} 
     }
     child[concept color=orange] {
       node[concept] (TeXdoc)
-        {\href{http://texdoc.net/}{\TeX doc\\.net}}
-        [clockwise from=100]
-        child { node[concept] {\href{http://www.tex.ac.uk}{UK \TeX \\FAQ}}
-        }}
+        {Weight Scale}
+        [counterclockwise from=340]
+        child { node{Hydration}}
+        child { node[concept] {Body fat}}
+        child { node[concept] {Active, Basal Metabolic Rate}}
+        child { node[concept] {Muscle Mass}}
+        child { node[concept] {Bone Mass}}
+        }
     child[concept color=yellow!60!black] {
-      node[concept] (Blogs) {Blogs} [clockwise from=139]
-      child { node[concept] {\href{http://texblog.net/}{\TeX blog\\.net}}}
-      child { node[concept] {\href{http://tikz.de/}{TikZ.de}} }
-      child { node[concept] (Cookbook)
-        {\href{http://latex-cookbook.net/}{\LaTeX-\\Cookbook\\.net}} }
+      node[concept] (Blogs) {Stride, Speed, Distance} [counterclockwise from=280]
+      child { node[concept] {Distance}}
+      child { node[concept] {Speed} } 
+      child { node[concept] (Calories)
+        {Calories} }
+      child { node[concept] (Calories)
+        {Stride Count} }  
     };
 
 \end{tikzpicture}

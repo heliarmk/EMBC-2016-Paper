@@ -23,17 +23,21 @@
   };
 }
 
+\IEEEoverridecommandlockouts % Don't forget this command!
+
 \begin{document}
-  \title{My Example LaTeX Conference Paper}
-  \author{Michael Weeks \\
-  \begin{affiliation}
-   Computer Science Department\\
-   Georgia State University\\
-   Atlanta, Georgia, USA 30303\\
-\end{affiliation} \\
-\email{mweeks@nospam.org}
+  \title{Data Driven Approach For Transfer Data  From ANT+ Sensors}
+
+  \author{{Petr Je\v{z}ek$^{1}$, Roman Mou\v{c}ek$^{1}$}
+\thanks{$^{1}$Department of Computer Science and Engineering
+New Technologies for the Information Society
+Faculty of Applied Sciences
+University of West Bohemia
+Plzen, Czech Republic
+        {\tt\small {jezekp, moucek}@kiv.zcu.cz}}%
+\thanks{*This work was not supported by any organization}% <-this % stops a space
 }
-  \maketitle
+\maketitle
 
 
 \begin{abstract}
@@ -43,23 +47,7 @@ with HTML: you can specify where text effects begin, and where they end.
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
-Here is the introduction.
-Since there is no blank line between these first 3 sentences, they are 
-treated as one paragraph. 
-Here is a vertical space (of 0.3 inches):
-\vspace{.3in}
-
-And here is a \hspace{.3in}horizontal space (of 0.3 inches).
-
-A blank line means that the last paragraph is over, and it is time to start
-a new one.
-
-You can have text in {\it italics} font, or in {\bf bold} font,
-\underline{underlined}, and even $\overline{overlined}$.
-What if you want overlined text, without italics? This can
-be done by using \verb"mathrm" in the 
-$\overline{\mathrm{overlined}}$ specification.
-
+Managing diseases and health issues is worldwide still more expensive especially with aging population. For instance there are around 22 million people affected with heart failure.  These people have been treated in hospitals for a long time. Nowadays, the situation is changing because relatively cheap solutions for home treatment is coming to market. These solutions usually use a set of sensors for monitoring of a health level. Data from these sensors are transfered to remote servers where are they are processed and results are visualized to the user. Sensors usually measure a large collection of body parameters. Integration of these sensors create a Body Area Network (BAN). When the number of sensors connected to BAN is increasing a management and long term storage and sustainability of data is a major requirement in future applications.
 
 
 
@@ -89,11 +77,11 @@ encapsulated postscript format.
 
 
 Skip a lot of space  \bigskip  vertically.
-\begin{figure}[h]
-\centering\includegraphics[width=8.50cm, height=8cm]{AntPlusProfiles}
-\caption{\label{FRA}Schematic Description of the Framework.}
+\begin{figure*}[ht]
+\centering\includegraphics[width=12cm, height=10cm]{AntPlusProfiles}
+\caption{\label{AntPlus}ANT+ Profiles Network}
 
-\end{figure}
+\end{figure*}
 \section{Here is some Computer Code}\label{sec:code}
 
 I like using the \verb"verbatim" specification for computer code. 
