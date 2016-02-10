@@ -35,7 +35,7 @@ Faculty of Applied Sciences
 University of West Bohemia
 Plzen, Czech Republic
         {\tt\small {jezekp, moucek}@kiv.zcu.cz}}%
-\thanks{*This work was not supported by any organization}% <-this % stops a space
+\thanks{*Acknowledgements will be added}% <-this % stops a space
 }
 \maketitle
 
@@ -47,166 +47,39 @@ with HTML: you can specify where text effects begin, and where they end.
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
-Managing diseases and health issues is worldwide still more expensive especially with aging population. For instance there are around 22 million people affected with heart failure.  These people have been treated in hospitals for a long time. Nowadays, the situation is changing because relatively cheap solutions for home treatment is coming to market. These solutions usually use a set of sensors for monitoring of a health level. Data from these sensors are transfered to remote servers where are they are processed and results are visualized to the user. Sensors usually measure a large collection of body parameters. Integration of these sensors create a Body Area Network (BAN). When the number of sensors connected to BAN is increasing a management and long term storage and sustainability of data is a major requirement in future applications.
+Managing diseases and health issues is worldwide still more expensive especially with aging population. For instance there are around 23 million people affected with heart failure \cite{bui2011epidemiology}. These people have been treated in hospitals for a long time. Nowadays, the situation is changing because relatively cheap solutions for a home treatment is coming to the market \cite{4761985, 5333913}. These solutions enable to make a particular shift of patients from hospitals to their homes. It brings advantages in better comfort for patients and cheapens treatment itself.  These solutions usually use a set of sensors for monitoring of a health level. Wearable sensors are usually powered from batteries. They have to operate for a long time period without possibility to change batteries frequently. As a solution new protocols with the objective of low energy consumption as ZigBee \cite{Farahani:2008:ZWN:1457417}, Bluetooth Low Energy \cite{heydon2012bluetooth} or ANT \cite{zaloker2014ant} has been defined.  Data from these sensors are transfered to remote servers where are they are processed and results are visualized to the user. Sensors usually measure a large collection of body parameters. Integration of these sensors creates a Body Area Networks (BAN). When the number of sensors connected to BAN is increasing a management and a long term storage and sustainability of data is a major requirement in future applications.
+
+While low energy consumption standards for data transfer exist they are still too fragmented to enable an easy manipulation with obtained data. As a solution this paper presents an approach of using a unified HDF5 format for encapsulating ANT+ sensor data and its transfer to a remote storage. 
+
+The paper is organized as follows. Section \ref{sec:state-of-the-art} describes current approaches in the domain then Section \ref{sec:ant-plus-profiles} describes existing ANT+ profiles and selects most suitable profiles for eHealth domain. Section \ref{sec:framework} describes proposed framework that facilitates the conversion of sensors data to an output HDF5 format. Then Section \ref{sec:use-case} demonstrates the usage of proposed transformation. Last Section \ref{sec:future-work} summarizes the current work and provide outlook to the future.
+
+\section{State of The Art}\label{sec:state-of-the-art}
+
+An approach presented in \cite{mehmood2014ontology} defines a three layers ontology describing data from different sensors. This ontology can facilitates programmer development of tools for processing sensors data.
 
 
+\section{ANT+ Profiles}\label{sec:ant-plus-profiles}
 
-\begin{table}[!hbt]
-\begin{center}
-  \caption{Table captions go above tables.}
-  \vspace{0.2in}
-  \begin{tabular}{|r|c|c|c|}
-     \hline
- & runs & hits & errors  \\
-     \hline
-Cardinals  & 2 & 2 & 1  \\
-Panthers & 4 & 8 & 0  \\
-Tigers  & 2 & 3 & 2  \\
-Braves  & 3 & 10 & 3  \\
-     \hline
-  \end{tabular}
-  \label{tab:example_tab}
-\end{center}
-\end{table}
+\section{Proposed Framework}\label{sec:framework}
 
-What if you want to include a figure? 
-Here is an example, figure~\ref{fig:phasor1}, that is saved in 
-encapsulated postscript format.
+\section{Use Case}\label{sec:use-case}
+
+\section{Conclusions and Future Work}\label{sec:future-work}
 
 
-
-
-Skip a lot of space  \bigskip  vertically.
 \begin{figure*}[ht]
 \centering\includegraphics[width=12cm, height=10cm]{AntPlusProfiles}
 \caption{\label{AntPlus}ANT+ Profiles Network}
 
 \end{figure*}
-\section{Here is some Computer Code}\label{sec:code}
 
-I like using the \verb"verbatim" specification for computer code. 
-For example, here is something that appears in several
-languages:
-
-\begin{verbatim}
-    for (int i=0; i< MAXVALUE-1; i++)
-    {
-        if (array[i] < array[i+1]) 
-        {
-            temp = array[i];
-            array[i] = array[i+1];
-            array[i+1] = temp;
-        }
-    }
-\end{verbatim}
-
-See how it makes the code stand out? I think it makes it
-much easier to read, too.
-
-\section{Here is some Math}\label{sec:math}
-This is different from the previous section, section~\ref{sec:intro}.
-This section gives some examples of Math.
-
-
-
-If you use a character, but LaTeX complains about it, try putting a 
-back-slash before it. For example, 
-f = x\^{}y  uses the carat character. 
-If you want to end a line, use 2 back-slashes.
-If you want the backslash character $\backslash$ in your document,
-this can be done, too.
-
-Here's an equation:
-
-\[ M^\bot = \{ f \in V' : f(m) = 0 \mbox{ for all } m \in M \}.\]
-
-Here's d2u/dx2 : (use the dollar sign before and after math stuff)
-
-$ \frac{d^2 u}{dx^2} $
-
-Here's another equation:
-
-\[ \lim_{x \to 0} \frac{3x^2 +7x^3}{x^2 +5x^4} = 3.\]
-
-Here's a summation:
-\[ \sum_{k=1}^n k^2 = \frac{1}{2} n (n+1).\] 
-
-and an integral:
-\[ \int_a^b f(x)\,dx.\]
-
-Here are some Greek letters:
-$ \Delta \Psi \Phi $
-and some lower case ones:
-$ \delta \psi \phi \omega \pi \sigma \mu $.
-
-For more info, see
-
-
-http://www.maths.tcd.ie/\~{}dwilkins/LaTeXPrimer/
-
-\section{Filler}
-
-It is always a good idea to have text between a section header and
-a subheading.
-
-\subsection{Sentences About Nothing}
-
-This sentence does not really say anything important, but it does take up space.
-This sentence does not really say anything important, but it does take up space.
-This sentence does not really say anything important, but it does take up space.
-This sentence does not really say anything important, but it does take up space.
-This sentence does not really say anything important, but it does take up space.
-
-\newpage
-
-{\bf I added a ``newpage'' command above to make the columns somewhat even.}
-This sentence does not really say anything important, but it does take up space.
-This sentence does not really say anything important, but it does take up space.
-This sentence does not really say anything important, but it does take up space.
-This sentence does not really say anything important, but it does take up space.
-This sentence does not really say anything important, but it does take up space.
-This sentence does not really say anything important, but it does take up space.
-This sentence does not really say anything important, but it does take up space.
-This sentence does not really say anything important, but it does take up space.
-
-
-\subsection{More About Nothing}
-
-This sentence does not really say anything important, but it does take up space.
-This sentence does not really say anything important, but it does take up space.
-This sentence does not really say anything important, but it does take up space.
-This sentence does not really say anything important, but it does take up space.
-This sentence does not really say anything important, but it does take up space.
-This sentence does not really say anything important, but it does take up space.
-This sentence does not really say anything important, but it does take up space.
-This sentence does not really say anything important, but it does take up space.
-This sentence does not really say anything important, but it does take up space.
-This sentence does not really say anything important, but it does take up space.
-
-This sentence does not really say anything important, but it does take up space.
-This sentence does not really say anything important, but it does take up space.
 
 
 
 
 % Now here is the reference section.
 
-\begin{thebibliography}{99}
-
-  % Book
-  \bibitem{Weste93} Neil H. E. Weste and Kamran Eshraghian, {\it Principles
-  of CMOS VLSI Design}, 2nd ed. Reading, MA: Addison-Wesley, 1993.
-
-  %Example of a Conference Paper
-  \bibitem{LiY88} R. A. Lincoln and K. Yao, ``Efficient Systolic Kalman
-  Filtering Design by Dependence Graph Mapping,'' in {\it VLSI Signal
-  Processing, III}, IEEE Press, R. W. Brodersen and H. S. Moscovitz Eds.,
-  1988, pp.~396--410.
-
-  % Example of a Journal Paper
-  \bibitem{BiS92} C. H. Bischof and G. M. Shroff, ``On Updating Signal
-  Subspaces,'' {\it IEEE Trans. on Signal Processing}, vol.~40, no.~1,
-  pp.~96--105, Jan. 1992.
-
-\end{thebibliography}
+\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+\bibliography{EMBC-2016}
 \end{document}
