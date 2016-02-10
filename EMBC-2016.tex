@@ -47,7 +47,7 @@ with HTML: you can specify where text effects begin, and where they end.
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
-Managing diseases and health issues is worldwide still more expensive especially with aging population. For instance there are around 23 million people affected with heart failure \cite{bui2011epidemiology}. These people have been treated in hospitals for a long time. Nowadays, the situation is changing because relatively cheap solutions for a home treatment is coming to the market \cite{4761985, 5333913}. These solutions enable to make a particular shift of patients from hospitals to their homes. It brings advantages in better comfort for patients and cheapens treatment itself.  These solutions usually use a set of sensors for monitoring of a health level. Wearable sensors are usually powered from batteries. They have to operate for a long time period without possibility to change batteries frequently. As a solution new protocols with the objective of low energy consumption as ZigBee \cite{Farahani:2008:ZWN:1457417}, Bluetooth Low Energy \cite{heydon2012bluetooth} or ANT \cite{zaloker2014ant} has been defined.  Data from these sensors are transfered to remote servers where are they are processed and results are visualized to the user. Sensors usually measure a large collection of body parameters. Integration of these sensors creates a Body Area Networks (BAN). When the number of sensors connected to BAN is increasing a management and a long term storage and sustainability of data is a major requirement in future applications.
+Managing diseases and health issues is worldwide still more expensive especially with aging population. For instance there are around 23 million people affected with heart failure \cite{bui2011epidemiology}. These people have been treated in hospitals for a long time. Nowadays, the situation is changing because relatively cheap solutions for a home treatment is coming to the market \cite{4761985, 5333913}. These solutions enable to make a particular shift of patients from hospitals to their homes. It brings advantages in better comfort for patients and cheapens treatment itself.  These solutions usually use a set of sensors for monitoring of a health level. Wearable sensors are usually powered from batteries. They have to operate for a long time period without possibility to change batteries frequently. As a solution new protocols with the objective of low energy consumption as ZigBee \cite{Farahani:2008:ZWN:1457417}, Bluetooth Low Energy \cite{heydon2012bluetooth} or ANT \cite{zaloker2014ant} has been defined.  Data from these sensors are transfered to remote servers where they are processed and results are visualized to the user. Sensors usually measure a large collection of body parameters. Integration of these sensors creates a Body Area Networks (BAN). When the number of sensors connected to BAN is increasing a management and a long term storage and sustainability of data is a major requirement in future applications.
 
 While low energy consumption standards for data transfer exist they are still too fragmented to enable an easy manipulation with obtained data. As a solution this paper presents an approach of using a unified HDF5 format for encapsulating ANT+ sensor data and its transfer to a remote storage. 
 
@@ -55,23 +55,25 @@ The paper is organized as follows. Section \ref{sec:state-of-the-art} describes 
 
 \section{State of The Art}\label{sec:state-of-the-art}
 
-An approach presented in \cite{mehmood2014ontology} defines a three layers ontology describing data from different sensors. This ontology can facilitates programmer development of tools for processing sensors data.
+An approach presented in \cite{mehmood2014ontology} defines a three layers ontology describing data from different sensors. This ontology can facilitates programmer development of tools for processing sensors data. An Sensor-Cloud infrastructure \cite{5635688} represents physical sensors as virtual sensors stored in a Cloud infrastructure. The Cloud manages sensors capability. So called Semantic Sensor Web \cite{4557983} is based on an annotation of sensors data by means of Semantic Web. Such annotated data can be distributed via the Internet.
 
 
 \section{ANT+ Profiles}\label{sec:ant-plus-profiles}
 
+\begin{figure*}[ht]
+\centering\includegraphics[width=12cm, height=10cm]{AntPlusProfiles}
+\caption{\label{AntPlus}ANT+ Profiles Network}
+\end{figure*}
+
 \section{Proposed Framework}\label{sec:framework}
+
+\subsection{Format Discussion}
+\subsection{Proposed Mapping}
+\subsection{Implementation}
 
 \section{Use Case}\label{sec:use-case}
 
 \section{Conclusions and Future Work}\label{sec:future-work}
-
-
-\begin{figure*}[ht]
-\centering\includegraphics[width=12cm, height=10cm]{AntPlusProfiles}
-\caption{\label{AntPlus}ANT+ Profiles Network}
-
-\end{figure*}
 
 
 
