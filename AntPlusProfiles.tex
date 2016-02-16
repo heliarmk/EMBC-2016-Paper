@@ -31,6 +31,9 @@ and far from perfect, but is shown here to share.
 \usepackage{tikz}
 \usetikzlibrary{mindmap,shadows}
 \usepackage[hidelinks,pdfencoding=auto]{hyperref}
+
+\hyphenation{Time-stamp Ca-pa-bi-li-ties Sa-tu-ra-ted He-mo-glo-bin}
+
 % Information boxes
 \newcommand*{\info}[4][16.3]{%
   \node [ annotation, #3, scale=1, minimum width = #1em,
@@ -42,17 +45,20 @@ and far from perfect, but is shown here to share.
   \endlist
   };
 }
+
+
+
 \begin{document}
 \begin{tikzpicture}[ every annotation/.style = {draw,
                      fill = white, font = \Large}]
   \path[mindmap,concept color=black!40,text=white,
-    every node/.style={concept,circular drop shadow},
+    every node/.style={concept,circular},
     root/.style    = {concept color=black!40,
       font=\large\bfseries,minimum width=10em},
     level 1 concept/.append style={font=\Large\bfseries,
       sibling angle=50,minimum width=5em,
     level distance=20em,inner sep=0pt},
-    level 2 concept/.append style={font=\bfseries,level distance=9em},
+    level 2 concept/.append style={font=\bfseries,level distance=9em, minimum width=4em},
   ]
   node[root] {ANT+ device name, ANT+ device status, ANT+ device number, Battery status, Manufacturer identification, Manufacturer specific data, ANT+ signal strength, Product information} [clockwise from=0]
     child[concept color=blue!60] {
@@ -88,7 +94,7 @@ and far from perfect, but is shown here to share.
       child { node[concept] (Planet)
         {Heart Rate} }
       child { node[concept] (Planet)
-        {Timestamp} }        
+        {\hspace{0pt}Timestamp} }        
       child { node[concept] (Planet)
         {Mean Arterial} }  
       child { node[concept] (Planet)
@@ -112,11 +118,11 @@ and far from perfect, but is shown here to share.
       node[concept] {Muscle Oxygen Monitor}
       [clockwise from=220]
       child { node[concept] (LaTeXForum)
-        {Hemoglobin Concentration}}
+        {\hspace{0pt}Hemoglobin Concentration}}
       child { node[concept] (LaTeXArtikel)
-        {Saturated Hemoglobin} }
+        {\hspace{0pt}Saturated Hemoglobin} }
       child { node[concept] (LaTeXNews)
-        {Capabilities}} 
+        {\hspace{0pt}Capabilities}} 
     }
     child[concept color=orange] {
       node[concept] (TeXdoc)
