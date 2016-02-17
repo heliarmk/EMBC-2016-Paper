@@ -62,21 +62,34 @@ An approach presented in \cite{mehmood2014ontology} defines a three layers ontol
 ANT+ protocol is popular because of its low energy consumption and because it provide good means to describe body parameters or fitness level. The main benefit are ``device profiles`` to define how to send data over the network in a consistent way \cite{innovations2013ant}. When the data transfer profiles are defined they facilitates development of sensors. 
 ANT+ profiles supports a large scale of activities such as Cycling, Walking or devices for measurement of Heart Rate, Blood pressure, Weight, Muscle Oxygen Monitor etc. If we browse individual profiles detailed we can observe attributes that are common for all profiles including e.g.: device name, status, manufacturer, signal strength or battery status. Then, there are other attributes varying for individual profiles. 
 
-According to individual attributes of profiles we can define common attributes as metadata of sensors and individual profile attributes as raw data. 
+According to individual attributes we can define common attributes as metadata of sensors while individual profile attributes represent raw sensor data. 
 
 \section{Proposed Framework}\label{sec:framework}
 
-Although several APIs for processing data coming from ANT+ devices exist their transfer to remote databases is not satisfactorily solved. When data have to be transfered and stored a unified data format has to be defined.
+\subsection{Requirements}\label{sec:requirements}
 
-As a solution we are here presenting a Framework that expresses data in 
+Due to the absence of a format or a data structure for representing data coming from sensors we are designing a framework that enables collecting of sensor data and storing both raw data and metadata. The framework have to use a widely accepted format in order to stored data can be reused in third-party systems.
 
-\begin{figure*}[ht]
+
+
+
+\subsection{Format Discussion}
+
+In Section \ref{sec:ant-plus-profiles} ANT+ data has been defined as a combination of raw data supplemented by descriptive metadata. Therefore the developed format has to be robust to enable handling with large collections of raw data and simultaneously must be flexible to deal with heterogeneous metadata.
+
+As a member of International Neuroinformatics Coordinating Facility (INCF) \cite{wvangeit:Bjaalie:JNeurosci:2007} we are responsible for development of hardware and software infrastructure for electrophysiology experiments. Within INCF we are a member of the working group of the INCF Task Force on Electrophysiology\footnote{http://www.incf.org/programs/datasharing/ electrophysiology-task-force}. There were introduced two approaches towards defining a standard. The first one uses the Hierarchical Data Format (HDF5) \cite{hdf5}. HDF5 is portable and extensible format supporting an unlimited variety of datatypes and is designed for flexible and efficient I/O and for high volume and complex data. The second approach is OdML~\cite{10.3389/fninf.2011.00016}. It is a~free form tree-like structure of sections, properties and values. It is a suitable metadata format because of its platform-independence, simplicity, and human-readability. Moreover, it ensures a compatibility with other systems developed in neuroinformatics community, for example \cite{10.3389/conf.fninf.2014.18.00029}, \cite{10.3389/conf.fninf.2014.18.00053}, and~\cite{10.3389/conf.fninf.2013.09.00025}. A next step is merging of these two approaches\cite{10.3389/conf.fninf.2013.09.00069}. The NIX format~\cite{Stoewer:2014} provides a data model for storing experimental data in HDF5, together with metadata in the odML format.
+
+\subsection{Proposed Mapping}
+
+We selected these ANT+ profiles that can be used for monitoring of person health or fitness level. We selected a common metadata from these profiles and individual raw data. Figure \ref{AntPlus} show a graphical relationship of the profiles. A middle gray circle shows common metadata while other circles are selected profiles and their raw data. 
+
+\begin{figure*}
 \centering\includegraphics[width=12cm, height=10cm]{AntPlusProfiles}
 \caption{\label{AntPlus}ANT+ Profiles Network}
 \end{figure*}
 
-\subsection{Format Discussion}
-\subsection{Proposed Mapping}
+The NIX model for data consists of several main elements: Block, DataArray, Tag, MultiTag, Source, Group and Dimension. Each element consists several attributes such as id, name and specific attributes for individual elements. Moreover, each elements can consist a link to an odML metadata model. We use a simplified model for mapping ANT+ elements. A Source will represent an ANT+ device, the DataArray represents raw data coming from the device sensor, the Dimension 
+
 \subsection{Implementation}
 
 \section{Use Case}\label{sec:use-case}
@@ -91,5 +104,5 @@ As a solution we are here presenting a Framework that expresses data in
 
 \bibliographystyle{IEEEtran}
 % argument is your BibTeX string definitions and bibliography database(s)
-\bibliography{EMBC-2016}
+\bibliography{EMBC-2016,citations-ic4awe-2016,bibliography,neuroportals}
 \end{document}
