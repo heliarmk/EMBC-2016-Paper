@@ -88,11 +88,16 @@ We selected these ANT+ profiles that can be used for monitoring of person health
 \caption{\label{AntPlus}ANT+ Profiles Network}
 \end{figure*}
 
-The NIX model for data consists of several main elements: Block, DataArray, Tag, MultiTag, Source, Group and Dimension. Each element consists several attributes such as id, name and specific attributes for individual elements. Moreover, each elements can consist a link to an odML metadata model. We use a simplified model for mapping ANT+ elements. A Source will represent an ANT+ device, the DataArray represents raw data coming from the device sensor, the Dimension 
+The NIX model for data consists of several main elements: Block, DataArray, Tag, MultiTag, Source, Group and Dimension. Each element consists several attributes such as id, name and specific attributes for individual elements. Moreover, each elements can consist a link to an odML metadata model. We use a simplified model for mapping ANT+ elements. A Source represents an ANT+ device, the DataArray represents raw data coming from the device sensor, the Dimension represents a description of axis. Last, the Block wraps complete recording.
 
 \subsection{Implementation}
 
 \section{Use Case}\label{sec:use-case}
+
+\begin{figure*}
+\centering\includegraphics[width=13cm, height=8cm]{NIX-example}
+\caption{\label{NIX-ex}Heart rate measurement transferred to NIX}
+\end{figure*}
 
 \section{Conclusions and Future Work}\label{sec:future-work}
 
