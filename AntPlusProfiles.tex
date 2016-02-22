@@ -32,7 +32,7 @@ and far from perfect, but is shown here to share.
 \usetikzlibrary{mindmap,shadows}
 \usepackage[hidelinks,pdfencoding=auto]{hyperref}
 
-\hyphenation{Time-stamp Ca-pa-bi-li-ties Sa-tu-ra-ted He-mo-glo-bin}
+\hyphenation{Time-stamp Ca-pa-bi-li-ties Sa-tu-ra-ted He-mo-glo-bin stop-ped}
 
 % Information boxes
 \newcommand*{\info}[4][16.3]{%
@@ -59,6 +59,7 @@ and far from perfect, but is shown here to share.
       sibling angle=50,minimum width=5em,
     level distance=20em,inner sep=0pt},
     level 2 concept/.append style={font=\bfseries,level distance=9em, minimum width=4em},
+    level 3 concept/.append style={font=\bfseries,level distance=14em, minimum width=5em},
   ]
   node[root] {ANT+ device name, ANT+ device status, ANT+ device number, Battery status, Manufacturer identification, Manufacturer specific data, ANT+ signal strength, Product information} [clockwise from=0]
     child[concept color=blue!60] {
@@ -73,15 +74,16 @@ and far from perfect, but is shown here to share.
       child { node[concept] (TeXnique)
         {Speed Sensor} 
         [clockwise from=20]
-          child {node {Latest Speed Event Time}} 
-          child {node {Cumulative Wheel Revolutions}}
-          child {node {Stopped flag}}
+          child {node {\hspace{0pt}Latest Speed Event Time}} 
+          child {node {\hspace{0pt}Cumulative Wheel Revolutions}}
+          child {node {\hspace{0pt}Stopped flag}}
         }
       child { node[concept] (TeXweltQA)
-        {Cadence Sensor} 
-          child {node {Latest Cadence Event Time}} 
-          child {node {Cumulative Pedal Revolutions}}
-          child {node {Stopped flag}}
+        {Cadence Sensor}
+        [clockwise from=320]
+          child {node {\hspace{0pt}Latest Cadence Event Time}} 
+          child {node {\hspace{0pt}Cumulative Pedal Revolutions}}
+          child {node {\hspace{0pt}Stopped flag}}
         }
     }
     child[concept color=green!40!black] {
