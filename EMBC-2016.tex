@@ -4,7 +4,7 @@
 %
 %  - Michael Weeks, January, 2003
 %
-\documentclass[conference]{IEEEconf}
+\documentclass[conference]{IEEEtran}
 \usepackage[dvips]{graphics}
 \usepackage{tikz}
 \usepackage{dtklogos}
@@ -30,13 +30,13 @@
 \begin{document}
   \title{Data Driven Approach For Transfer Data  From ANT+ Sensors}
 
-  \author{{Petr Je\v{z}ek$^{1}$, Roman Mou\v{c}ek$^{1}$}
+  \author{{Petr Je\v{z}ek$^{1}$}
 \thanks{$^{1}$Department of Computer Science and Engineering
 New Technologies for the Information Society
 Faculty of Applied Sciences
 University of West Bohemia
 Plzen, Czech Republic
-        {\tt\small {jezekp, moucek}@kiv.zcu.cz}}%
+        {\tt\small jezekp@kiv.zcu.cz}}%
 \thanks{*This publication was supported by the project LO1506 of the Czech Ministry of Education, Youth and Sports}% <-this % stops a space
 }
 \maketitle
@@ -45,8 +45,17 @@ Plzen, Czech Republic
 
 \begin{abstract}
 Managing diseases is still more expensive in these days. For a long time people have been treated in hospotals. Fortunatelly current situation is changing also thanks to relatively cheap body sensors and raising development of systems for home treathment. It brings negligible cost saving and improves patients compfort. On the other hand it puts demands on sensors and home treatment system developers. They are depending on the efforts of data formats unification. There are standards and APIs such as Zigbee, Bluetooth low energy or ANT+ that define a protocol for data transfer. However, they do not define format for storing data from sensors in remote databases. As a solution data comming from ANT+ sensors have been studied. Then, metadata common to all sensors and raw data differing for each sensor have been defined. Next, framework for transferring data from ANT+ sensors into the proposed format implemented in NIX is described. Last, a use-case describing the transfer of data from a selected sensor into a selected neuroinformatics database is described.
-\keywords{ANT+, NIX, sensor, data/metadata storage, EEGBase, data format, eHealth}
+
+
+
 \end{abstract}
+
+\begin{IEEEkeywords}
+ANT+, NIX, sensor, data/metadata storage, EEGBase, data format, eHealth.
+\end{IEEEkeywords}
+
+
+
 
 \section{Introduction}\label{sec:intro}
 Managing diseases and health issues is worldwide still more expensive especially with aging population. For instance there are around 23 million people affected with heart failure \cite{bui2011epidemiology}. These people have been treated in hospitals for a long time. Nowadays, the situation is changing because relatively cheap solutions for a home treatment are coming to the market \cite{4761985, 5333913} they particularly shift patients from hospitals to their homes. It brings advantages in a better comfort for patients and it cheapens treatment itself. Home treatment systems usually use a set of sensors for monitoring of health or fitness level. Wearable sensors are usually powered from batteries. They have to operate for a long time period without possibility to change batteries frequently. That is why new protocols with the objective of low energy consumption as ZigBee \cite{Farahani:2008:ZWN:1457417}, Bluetooth Low Energy \cite{heydon2012bluetooth} or ANT \cite{zaloker2014ant} has been developed.  Data from these sensors are transfered to remote servers where they are processed and results are visualized. Sensors usually measure a large collection of body parameters. Integration of these sensors creates Body Area Networks (BAN). When the number of sensors connected to BAN is increasing requirements to the management and a long term storage and sustainability of data are also increasing.
@@ -67,16 +76,18 @@ ANT+ profiles support a large scale of activities such as Cycling or Walking, or
 
 We can observe that individual profile attributes represent raw sensor data while common attributes describe metadata. 
 
-\section{Proposed Framework}\label{sec:framework}
-
-\subsection{Requirements}\label{sec:requirements}
-
-Due to the absence of a format or a data structure for representing data from sensors we are designing a framework that enables collecting of sensor data and storing both raw data and metadata in defined structure. The framework have to use a widely accepted format in order to stored data can be reused in third-party systems. The format must be robust and flexible to cover a heterogeneous nature of sensor data and to provide a long term sustainability. Next, the format must be accepted by larger scientific community. 
 
 \begin{figure*}
 \centering\includegraphics[width=12cm, height=10cm]{AntPlusProfiles}
 \caption{\label{AntPlus}ANT+ Profiles Network}
 \end{figure*}
+
+
+\section{Proposed Framework}\label{sec:framework}
+
+\subsection{Requirements}\label{sec:requirements}
+
+Due to the absence of a format or a data structure for representing data from sensors we are designing a framework that enables collecting of sensor data and storing both raw data and metadata in defined structure. The framework have to use a widely accepted format in order to stored data can be reused in third-party systems. The format must be robust and flexible to cover a heterogeneous nature of sensor data and to provide a long term sustainability. Next, the format must be accepted by larger scientific community. 
 
 \subsection{Format Discussion}
 
@@ -126,7 +137,7 @@ Once data are stored they can be transferred to a suitable neuroinformatics data
 \end{figure}
 
 \begin{figure*}
-\centering\includegraphics[width=13cm]{NIX-example}
+\centering\includegraphics[width=11cm]{NIX-example}
 \caption{\label{NIX-ex}Heart rate measurement transferred to NIX}
 \end{figure*}
 
