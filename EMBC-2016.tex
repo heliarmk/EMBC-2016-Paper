@@ -37,21 +37,13 @@ Faculty of Applied Sciences
 University of West Bohemia
 Plzen, Czech Republic
         {\tt\small {jezekp, moucek}@kiv.zcu.cz}}%
-\thanks{*Acknowledgements will be added}% <-this % stops a space
+\thanks{*This publication was supported by the project LO1506 of the Czech Ministry of Education, Youth and Sports}% <-this % stops a space
 }
 \maketitle
 
 
 \begin{abstract}
-This is the abstract. You can use this file to start your own LaTeX file,
-and just delete the stuff you do not need. \LaTeX  is a lot like working
-with HTML: you can specify where text effects begin, and where they end.This is the abstract. You can use this file to start your own LaTeX file,
-and just delete the stuff you do not need. \LaTeX  is a lot like working
-with HTML: you can specify where text effects begin, and where they end.This is the abstract. You can use this file to start your own LaTeX file,
-and just delete the stuff you do not need. \LaTeX  is a lot like working
-with HTML: you can specify where text effects begin, and where they end.This is the abstract. You can use this file to start your own LaTeX file,
-and just delete the stuff you do not need. \LaTeX  is a lot like working
-with HTML: you can specify where text effects begin, and where they end.
+In these days managing diseases is still more expensive. For a long time people have been treated in hospotals. Fortunatelly current situation is changing also thanks to relatively cheap body sensors and raising development of systems for home treathment. It brings negligible cost saving and improves patients compfort. On the other hand it puts deamns on sensors and home treatment system developers. The are depending on the efforts of unification of data formats. There are standards and APIs such as Zigbee, Bluetooth low energy or ANT+ that define a protocol for data transfer. Unfortunatelly, they do not define format for storing data comming from sensors in remote databases. As a solution data comming from ANT+ sensors have been investigated. Then metadata common to all sensors and raw data differing for each sensor have been defined. Next, framework for transferring data from ANT+ sensor into the proposed format implemented in NIX is described. Last a use-case describing transfer data from a selected sensor into a selected neuroinformatics database is described.
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
@@ -99,6 +91,14 @@ We selected these ANT+ profiles that can be used for monitoring of person health
 
 The NIX model for data consists of several main elements: Block, DataArray, Tag, MultiTag, Source, Group and Dimension. Each element consists several attributes such as id, name and specific attributes for individual elements. Moreover, each elements can consist a link to an odML metadata model. We use a simplified model for mapping ANT+ elements. A Source represents an ANT+ device, the DataArray represents raw data coming from the device sensor, the Dimension represents a description of axis. Last, the Block wraps complete recording.
 
+\begin{figure}
+  %\vspace{-0.2cm}
+  \centering\includegraphics[width=8cm]{portal_example.png}
+  \caption{Data stored in EEGBase}
+  \label{fig:EEGBase}
+ \end{figure}
+
+
 \section{Use Case}\label{sec:use-case}
 
 The presented framework serves mainly for designers or programmers of complete systems intended for home monitoring of end-users. We suppose that such a programmer want to implement a system for heart rate monitoring of elderly people. This system have following requirements: It must use a easy to use sensor for a heart rate monitoring, data from this sensor must be easily transferred to a computer where they are stored and eventually evaluated. Moreover there are regular medical checks where a physician can use these long term heart rate records to check a health condition of the patient or eventually set a treatment. This requires to both the patient and the doctor use software with readable format. 
@@ -130,17 +130,13 @@ Once data are stored they can be transferred to a suitable neuroinformatics data
 \caption{\label{NIX-ex}Heart rate measurement transferred to NIX}
 \end{figure*}
 
-\begin{figure}
-  %\vspace{-0.2cm}
-  \centering\includegraphics[width=8cm]{portal_example.png}
-  \caption{Data stored in EEGBase}
-  \label{fig:EEGBase}
- \end{figure}
 
 
 \section{Conclusions and Future Work}\label{sec:future-work}
 
-
+Because of raising popularity of sensors for home treatment several low energy standards has been defined. These standards enables transffer data from body sensors into common computers where they can be processed. The one of the most often used is ANT+ supported by significant producers on market. Although a transfer protocol is defined and several APIs for working with sensors exist there is not defined a standard for storing of sensors data. When home treatment systems use proprietary data formats systems cannot be easily integrated. It brings serious complications for designers of systems for home treatment. In this paper we have described a framework that aim is to overcome these difficulties by designing a framework that maps data from ANT+ sensors into a widelly accepted format NIX. This format brings advantages in two layers structure. First the metadata strucuture uses a flexible format odML and the second data strucure is based on HDF5 format. The definition of this two layers has been also significant contribution of this work. 
+The functionality of the frawemork is described on a simple use case. Our future work is to test it on a large collection of sensors and test the data transfer to a large collection of neuroinformatics database. We also plan to invite developers of home tratment systems to integrate the framework into their systems. 
+Next, when the framework is fully tested we will work the tranformation of data from Blueetooth low energy into the NIX format as well. 
 
 
 
