@@ -28,7 +28,7 @@
 \IEEEoverridecommandlockouts % Don't forget this command!
 
 \begin{document}
-  \title{Data Driven Approach For Transfer Data  From ANT+ Sensors}
+  \title{Data Driven Approach For Transferring ANT+ Sensor Data}
 
   \author{{Petr Je\v{z}ek$^{1}$ Roman Mou\v{c}ek$^{1}$}
 \thanks{$^{1}$Department of Computer Science and Engineering
@@ -44,7 +44,7 @@ Plzen, Czech Republic
 
 
 \begin{abstract}
-In these days the management of diseases is still more expensive . For a long time people have been treated in hospitals. Fortunately the current situation is changing also thanks to relatively cheap body sensors and raising development of systems for home treatment. It brings inconsiderable costs saving and improves patients comfort. On the other hand it puts demands on sensors and home treatment system developers. They must solve integration of different systems. The crucial point is definition of unified data formats that facilitates data transfer and storage in remote databases. There are standards and APIs such as Zigbee, Bluetooth low energy or ANT+ that define a protocol for data transfer. However, they do not define format for data storing. As a solution data coming from ANT+ sensors have been studied. Then, metadata common to all sensors and raw data differing for each sensor have been defined. Next, framework for transferring data from ANT+ sensors into the proposed format implemented in NIX is described. Last, a use-case describing the transfer of data from a selected sensor into a selected neuroinformatics database is described.
+In these days the management of diseases is still more expensive. For a long time people have been treated in hospitals. Fortunately the current situation is changing also thanks to relatively cheap body sensors and raising development of systems for home treatment. It brings inconsiderable costs saving and improves patients comfort. On the other hand it puts demands on sensors and home treatment system developers. They must solve integration of different systems. The crucial point is definition of unified data formats that facilitates data transfer and storage in remote databases. There are standards and APIs such as Zigbee, Bluetooth low energy or ANT+ that define a protocol for data transfer. However, they do not define format for data storing. As a solution data coming from ANT+ sensors have been studied. Then, metadata common to all sensors and raw data differing for each sensor have been defined. Next, framework for transferring data from ANT+ sensors into the proposed format implemented in NIX is described. Last, a use-case describing the transfer of data from a selected sensor into a selected neuroinformatics database is described.
 
 
 
@@ -58,11 +58,11 @@ ANT+, NIX, sensor, data/metadata storage, EEGBase, data format, eHealth.
 
 
 \section{Introduction}\label{sec:intro}
-Management of diseases and health issues is worldwide still more expensive especially with aging population. For instance there are around 23 million people affected with heart failure \cite{bui2011epidemiology}. These people have been treated in hospitals for a long time. Nowadays, the situation is changing because relatively cheap solutions for home treatment are coming to the market \cite{4761985, 5333913}. They particularly shift patients from hospitals to their homes. It brings advantages in a better comfort for patients and it cheapens treatment itself. Home treatment systems usually use a set of sensors for monitoring of health or fitness level. Wearable sensors are usually powered from batteries. They have to operate for a long time period without possibility to change batteries frequently. That is why new protocols with low energy consumption as ZigBee \cite{Farahani:2008:ZWN:1457417}, Bluetooth Low Energy \cite{heydon2012bluetooth} or ANT \cite{zaloker2014ant} has been developed.  Data from these sensors are transfered to remote servers where they are processed and results are visualized. Sensors usually measure a large collection of body parameters. Integration of these sensors creates Body Area Networks (BAN). When the number of sensors connected to BAN is increasing requirement to the management and a long term storage and sustainability of data is also increasing.
+Management of diseases and health issues are still more expensive worldwide, especially with aging population. For instance, there were around 23 million people affected with heart failure in~\cite{bui2011epidemiology}. These people had been treated in hospitals for a long time. Nowadays, the situation is changing because relatively cheap solutions for home treatment are coming to the market~\cite{4761985, 5333913} and patients are shifted from hospitals to their homes. It brings advantages in a better comfort for patients and makes treatment cheaper. Home treatment systems use a set of wearable sensors, usually powered from batteries, for monitoring of health or fitness level. They have to operate for a long time period without possibility to change batteries frequently. That is why new protocols with low energy consumption as ZigBee~\cite{Farahani:2008:ZWN:1457417}, Bluetooth Low Energy~\cite{heydon2012bluetooth} or ANT~\cite{zaloker2014ant} have been developed. Data from these sensors are transferred to remote servers where they are processed and visualized. Body Area Networks (BAN) is an integration of sensors providing a~large data collection of body parameters.  When the number of sensors connected to BAN increases, requirements for the management, long term storage and sustainability of acquired data also increases.
 
-Although low energy consumption standards for data transfer exist they are still too fragmented to enable easy manipulation with obtained data. Moreover, these standards do not provide means for a long term storage and management of data. As a solution this paper presents an approach of using a NIX format~\cite{Stoewer:2014} for encapsulating ANT+ sensor data. Then the transfer to a remote storage is presented. 
+Although there are some low energy consumption standards for data transfer, these are too fragmented to allow easy manipulation with obtained data. Of course, these standards also do not provide means for long term storage and management of transferred data. As a solution this paper presents how to use a~general data format called NIX~\cite{Stoewer:2014} for encapsulating and storing ANT+ sensor data.
 
-The paper is organized as follows. Section \ref{sec:state-of-the-art} describes current approaches in the domain. Then Section \ref{sec:ant-plus-profiles} describes existing ANT+ profiles and selects most suitable profiles for eHealth domain. Section \ref{sec:framework} describes a proposed framework that facilitates conversion of sensors data to the NIX format. Then Section \ref{sec:use-case} demonstrates the usage of proposed transformation in a simple use-case. Last Section \ref{sec:future-work} summarizes the current work and provide an outlook to the future.
+The paper is organized as follows. Section~\ref{sec:state-of-the-art} deals with sensor infrastructure and description of data from obtained from sensors. Section~\ref{sec:ant-plus-profiles} describes existing ANT+ profiles; most suitable profiles for eHealth domain are selected. Section~\ref{sec:framework} introduces a~framework that facilitates conversion of sensor data to the NIX format. Section~\ref{sec:use-case} presents the usage of proposed transformation, a~simple use-case is provided. Section~\ref{sec:future-work} summarizes the work and provides an outlook to the future.
 
 \section{State of The Art}\label{sec:state-of-the-art}
 
@@ -72,9 +72,9 @@ An approach presented in \cite{mehmood2014ontology} defines three layers ontolog
 \section{ANT+ Profiles Discussion}\label{sec:ant-plus-profiles}
 ANT+ protocol is so popular because of its low energy consumption and because of its providing good means to describe body parameters. The main benefit are ``device profiles`` that define sending data over the network in a consistent way \cite{innovations2013ant}. Profiles facilitate development of sensors and management of sensor data in application programs.
 
-ANT+ profiles support a large scale of activities such as Cycling or Walking, or measurement of body parameters such as Heart Rate, Blood pressure, Weight, or Muscle Oxygen Monitor. If we browse individual profiles in a detail we can observe attributes that are common for all profiles including e.g.: a device name, a device status, a manufacturer, a signal strength or a battery status. Then, there are attributes varying for individual profiles. 
+ANT+ profiles support a large scale of activities such as Cycling or Walking, or measurement of body parameters such as Heart Rate, Blood pressure, Weight, or Muscle Oxygen Monitor. If we browse individual profiles in a detail we can observe attributes that are common for all profiles including e.g.: a device name, a device status, a manufacturer, a signal strength or a battery status. Then, there are attributes varying for individual profiles.
 
-We can observe that individual profile attributes represent raw sensor data while common attributes describe metadata. 
+We can observe that individual profile attributes represent raw sensor data while common attributes describe metadata.
 
 
 \begin{figure*}
@@ -87,7 +87,7 @@ We can observe that individual profile attributes represent raw sensor data whil
 
 \subsection{Prerequisites}\label{sec:requirements}
 
-Due to the absence of a format or a data structure for representing data from sensors we are designing a framework that enables collecting of sensor data and storing both raw data and metadata in defined structure. The usage of a widely accepted format ensures re-usability in third-party systems. The format is robust and flexible hence covers a heterogeneous nature of sensor data and provides a long term sustainability. Finally, the format is accepted by large scientific community. 
+Due to the absence of a format or a data structure for representing data from sensors we are designing a framework that enables collecting of sensor data and storing both raw data and metadata in defined structure. The usage of a widely accepted format ensures re-usability in third-party systems. The format is robust and flexible hence covers a heterogeneous nature of sensor data and provides a long term sustainability. Finally, the format is accepted by large scientific community.
 
 \subsection{Format Discussion}
 
@@ -98,7 +98,7 @@ As a member of International Neuroinformatics Coordinating Facility (INCF) \cite
 
 \subsection{Proposed Mapping}
 
-We selected these ANT+ profiles that can be used for monitoring of person health or fitness level. We determined a common metadata from these profiles and individual raw data. Figure \ref{AntPlus} visualizes the profiles. A middle circle shows common metadata while other circles are the selected profiles and their raw data. 
+We selected these ANT+ profiles that can be used for monitoring of person health or fitness level. We determined a common metadata from these profiles and individual raw data. Figure \ref{AntPlus} visualizes the profiles. A middle circle shows common metadata while other circles are the selected profiles and their raw data.
 
 The NIX model consists of several main elements: Block, DataArray, Tag, MultiTag, Source, Group and Dimension. Each element consists several attributes such as id, name and specific attributes. Moreover, each element can consist a link to odML metadata. We use a simplified NIX model for mapping ANT+ elements. A Source represents an ANT+ device, the DataArray represents raw data, the Dimension represents a description of axis. Last, the Block wraps complete recording.
 
@@ -137,7 +137,7 @@ Once data are stored they can be transferred to a suitable neuroinformatics data
 \end{figure}
 
 \begin{figure*}
-\centering\includegraphics[width=11cm]{NIX-example}
+\centering\includegraphics[width=11cm]{NIX-example.eps}
 \caption{\label{NIX-ex}Heart rate measurement transferred to NIX}
 \end{figure*}
 
@@ -145,11 +145,11 @@ Once data are stored they can be transferred to a suitable neuroinformatics data
 
 \section{Conclusions and Future Work}\label{sec:future-work}
 
-Because of raising popularity of sensors for home treatment several low energy standards has been defined. These standards enable data transfer from body sensors into common computers where they can be processed. The one of the most often used is ANT+ supported by significant sensors producers. Although a transfer protocol is defined and several APIs for working with sensors exist there is not defined a standard for storing of sensors data. As long as home treatment systems use proprietary data formats systems can not be easily integrated with sensors. It brings serious complications for designers of such systems. In this paper we described a framework that overcomes these difficulties by designing a framework that maps data from ANT+ sensors into a widely accepted format NIX. This format brings advantages of two layers structure. First the metadata structure uses a flexible format odML and the second data structure is based on HDF5 format. The definition of this two layers of ANT+ sensors is also significant contribution of this work. 
+Because of raising popularity of sensors for home treatment several low energy standards has been defined. These standards enable data transfer from body sensors into common computers where they can be processed. The one of the most often used is ANT+ supported by significant sensors producers. Although a transfer protocol is defined and several APIs for working with sensors exist there is not defined a standard for storing of sensors data. As long as home treatment systems use proprietary data formats systems can not be easily integrated with sensors. It brings serious complications for designers of such systems. In this paper we described a framework that overcomes these difficulties by designing a framework that maps data from ANT+ sensors into a widely accepted format NIX. This format brings advantages of two layers structure. First the metadata structure uses a flexible format odML and the second data structure is based on HDF5 format. The definition of this two layers of ANT+ sensors is also significant contribution of this work.
 
-The functionality of the framework is described on a simple use case. Our future work is to test it on a large collection of sensors and test the data transfer to a larger collection of neuroinformatics databases. We also plan to invite developers of home treatment systems to integrate the framework into their solutions. 
+The functionality of the framework is described on a simple use case. Our future work is to test it on a large collection of sensors and test the data transfer to a larger collection of neuroinformatics databases. We also plan to invite developers of home treatment systems to integrate the framework into their solutions.
 
-Next, when the framework is fully tested we will work on the transformation of data from Blueetooth low energy into the NIX format as well. 
+Next, when the framework is fully tested we will work on the transformation of data from Blueetooth low energy into the NIX format as well.
 
 
 
@@ -158,4 +158,4 @@ Next, when the framework is fully tested we will work on the transformation of d
 \bibliographystyle{IEEEtran}
 % argument is your BibTeX string definitions and bibliography database(s)
 \bibliography{EMBC-2016,citations-ic4awe-2016,bibliography,neuroportals}
-\end{document}
+\end{document} 
