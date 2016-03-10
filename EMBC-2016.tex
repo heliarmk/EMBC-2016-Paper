@@ -94,9 +94,7 @@ Within a working group of International Neuroinformatics Coordinating Facility (
 
 \subsection{Proposed Mapping}
 
-We selected these ANT+ profiles that can be used for monitoring of person health or fitness level. We determined a common metadata from these profiles and individual raw data. Figure \ref{AntPlus} visualizes the profiles. A middle circle shows common metadata while other circles are the selected profiles and their raw data.
-
-The NIX model consists of several main elements: Block, DataArray, Tag, MultiTag, Source, Group and Dimension. Each element consists several attributes such as id, name and specific attributes. Moreover, each element can consist a link to odML metadata. We use a simplified NIX model for mapping ANT+ elements. A Source represents an ANT+ device, the DataArray represents raw data, the Dimension represents a description of axis. Last, the Block wraps complete recording.
+We selected ANT+ profiles relating to person health or fitness level. Figure~\ref{AntPlus} shows common metadata (the central circle) and domain specific raw data and metadata (other circles). The NIX model consists of several main elements: Block, DataArray, Tag, MultiTag, Source, Group, and Dimension. Each element includes a~set of attributes (such as id, name, specific attributes) and link to metadata organized in the odML structure. We used a~simplified NIX model for mapping ANT+ elements. The Source element represents an ANT+ device, DataArray represents raw data, Dimension represents description of graph axes, and Block wraps a~complete record.
 
 \begin{figure}
   %\vspace{-0.2cm}
