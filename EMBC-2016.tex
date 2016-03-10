@@ -89,32 +89,32 @@ Due to the absence of a suitable format/data structure for sensor data represent
 
 \subsection{Format Discussion}
 
-Within a working group of International Neuroinformatics Coordinating Facility (INCF)~\cite{wvangeit:Bjaalie:JNeurosci:2007} and its Task Force on Electrophysiology\footnote{http://www.incf.org/programs/datasharing/ electrophysiology-task-force} there were introduced two approaches towards defining a~standard on electrophysiology data. The first one uses the Hierarchical Data Format (HDF5)~\cite{hdf5}. HDF5 is portable and extensible format supporting an unlimited variety of datatypes that is designed for flexible and efficient I/O operations with high volume and complex data. The second approach uses odML~\cite{10.3389/fninf.2011.00016} as a~free form tree-like structure of sections, properties and values suitable for metadata description. This simple, platform-independent and human-readable format also ensures compatibility with other systems developed within the community such as~\cite{10.3389/conf.fninf.2014.18.00029},~\cite{10.3389/conf.fninf.2014.18.00053},~and~\cite{10.3389/conf.fninf.2013.09.00025}. The next step of the task force, merge of these two approaches~\cite{10.3389/conf.fninf.2013.09.00069}, resulted in the proposal of the NIX format~\cite{Stoewer:2014} that provides a~data model for storing experimental data in HDF5 together with its metadata internally organized in the odML format.
+Within a working group of International Neuroinformatics Coordinating Facility (INCF)~\cite{wvangeit:Bjaalie:JNeurosci:2007} and its Task Force on Electrophysiology\footnote{http://www.incf.org/programs/datasharing/ electrophysiology-task-force} there were introduced two approaches towards defining a~standard on electrophysiology data. The first one uses the Hierarchical Data Format (HDF5)~\cite{hdf5}. HDF5 is portable and extensible format supporting an unlimited variety of datatypes that is designed for flexible and efficient I/O operations with high volume and complex data. The second approach uses odML~\cite{10.3389/fninf.2011.00016} as a~free form tree-like structure of sections, properties and values suitable for metadata description. This simple, platform-independent and human-readable format also ensures compatibility with other systems developed within the community such as~\cite{10.3389/conf.fninf.2014.18.00029},~\cite{10.3389/conf.fninf.2014.18.00053},~and~\cite{10.3389/conf.fninf.2013.09.00025}. The next step of the task force, merge of these two approaches~\cite{10.3389/conf.fninf.2013.09.00069}, resulted in the proposal of the NIX format~\cite{Stoewer:2014} that provides a~data model for storing experimental data in HDF5 together with its metadata internally organized in the odML format. The NIX format is currently used in Helmholtz~\cite{10.3389/conf.fninf.2013.09.00025} and EEGBase~\cite{ISI:000306821100004} projects. 
+
+Although the NIX format was intended to be used in electrophysiology, its general definition makes it suitable for any time series data.
 
 
 \subsection{Proposed Mapping}
 
-We selected ANT+ profiles relating to person health or fitness level. Figure~\ref{AntPlus} shows common metadata (the central circle) and domain specific raw data and metadata (other circles). The NIX model consists of several main elements: Block, DataArray, Tag, MultiTag, Source, Group, and Dimension. Each element includes a~set of attributes (such as id, name, specific attributes) and link to metadata organized in the odML structure. We used a~simplified NIX model for mapping ANT+ elements. The Source element represents an ANT+ device, DataArray represents raw data, Dimension represents description of graph axes, and Block wraps a~complete record.
+We selected ANT+ profiles relating to person health or fitness level. Figure~\ref{AntPlus} shows common metadata (see the central circle) and domain specific raw data and metadata (see other circles). The NIX model consists of several main elements: Block, DataArray, Tag, MultiTag, Source, Group, and Dimension. Each element includes a~set of attributes (such as id, name, specific attributes) and link to metadata organized in the odML structure. We used a~simplified NIX model for mapping ANT+ elements. The Source element represents an ANT+ device, DataArray represents raw data, Dimension represents description of graph axes, and Block wraps a~complete record.
 
 \begin{figure}
   %\vspace{-0.2cm}
   \centering\includegraphics[width=8cm]{portal_example.png}
-  \caption{Data stored in EEGBase}
+  \caption{Metadata stored in EEGBase}
   \label{fig:EEGBase}
  \end{figure}
 
 
 \section{Use Case}\label{sec:use-case}
 
-The presented framework serves mainly for designers or programmers of systems intended for home monitoring of end-users. Let's assume following use-case. A programmer wants to implement a system for heart rate monitoring of elderly people. This system has following requirements: It must use an easy to use sensor, data from this sensor must be easily transferred to a computer where they are stored and evaluated. Moreover, there can be regular medical checks where a physician can use long term records to check a health condition of the patient or eventually set a treatment. This requires to both the patient and the doctor have access to an infrastructure that provide aims to store an manage users data. Such infrastructure must provide data security, consistency and sustainability.
+The presented framework serves mainly to designers and programmers of the systems for home monitoring. Let's assume the following use-case. A programmer wants to implement a system for heart rate monitoring of elderly people. There are the following system requirements: sensors have to be easy to use and  sensors data must be easily transferred to a computer where they are stored and evaluated. Moreover, during regular medical checks a~physician uses long term records to check health condition of the patient or eventually starts a treatment. This means that both the patient and physician have access to the infrastructure that ensures data storing and management as well as data security, consistency and sustainability.
 
-As a solution so called neuroinformatics databases and approaches such as CRCNS \cite{CRCNS}, Helmholtz \cite{10.3389/conf.fninf.2013.09.00025}, Carmen \cite{fgibson:Watson2007}, INCF Dataspace \cite{dataspace} or EEGBase \cite{ISI:000306821100004} are developing. Most of them just accepted or they are going to accept the NIX format as a standardized one.
+In this use-case we used the Garmin Premium Strap Heart Rate Monitor as a representative of ANT+ supporting devices. The Android SDK\footnote{http://developer.android.com/sdk/} was used to read ANT+ data at Android smart phones. We integrated this SDK into a custom mobile application MoBio\footnote{https://github.com/NEUROINFORMATICS-GROUP-FAV-KIV-ZCU/MoBio} that reads data from ANT+ sensors and store them on a~SD card. The user of MoBio can pair available sensors, record data and visualize them. This solution is available to a large number of users due to the existence of cheap Android smart phones and heart rate monitor straps on the market.
 
-There are lot of heart rate monitor straps. We use Garmin Premium Strap Heart Rate Monitor for this use-case. It is an ANT+ supporting device. We use Android SDK\footnote{http://developer.android.com/sdk/} for reading ANT+ data by Android smart phones. We integrate the SDK into a custom mobile application MoBio\footnote{https://github.com/NEUROINFORMATICS-GROUP-FAV-KIV-ZCU/MoBio} that reads data from ANT+ sensors and store them on a SD card. The user can pair available sensors, record data and visualize them. This solution is available to a large scale of users because of cheap Android smart phones and heart rate monitor straps on the market.
+Since our framework was also integrated into MoBio, recorded data can be stored in the NIX format. MoBio parses the record, metadata are transferred into a~structure with one section and several properties(see an example in Figure~\ref{odML}) and continuously read heart beats data are stored into the DataArray element (see an example in Figure~\ref{NIX-ex}). The Source element has an attribute metadata that contains a~link to the odML structure.
 
-Finally, MoBio integrates our framework that is why we can store data into a NIX file. When MoBio reads data it parses basic metadata such as device name, product information etc. Next metadata are transferred into a structure with one section and several properties as it is expressed in Figure \ref{odML}. Then heart beats are continuously read. These beats are stored into a data array. Figure \ref{NIX-ex} shows a hear beats signal stored in DataArray. The Source element has an attribute metadata that contains a link to the odML structure.
-
-Once data are stored they can be transferred to a suitable neuroinformatics database. Figure \ref{fig:EEGBase} shows data stored an visualized in EEGBase. There is a complex description of an experiment containing metadata from Heart Rate strap. The raw data are stored as well.
+Once the data and metadata are stored they can be transferred to a suitable database. Figure~\ref{fig:EEGBase} shows the metadata stored and visualized in EEGBase. A~complete description of the experiment contains metadata from the Heart Rate strap. The raw data are stored as well.
 
 \begin{figure}
 
@@ -127,12 +127,12 @@ Once data are stored they can be transferred to a suitable neuroinformatics data
 .3 Device number = 1.
 .3 Product Information = Garmin Premium Strap Heart Rate Monitor.
 }
-\caption{\label{odML}odML metadata for heart rate sensor}
+\caption{\label{odML}Metadata from heart rate sensor in odML structure}
 \end{figure}
 
 \begin{figure*}
 \centering\includegraphics[width=11cm]{NIX-example.eps}
-\caption{\label{NIX-ex}Heart rate measurement transferred to NIX}
+\caption{\label{NIX-ex}Heart rate record in the NIX format}
 \end{figure*}
 
 
