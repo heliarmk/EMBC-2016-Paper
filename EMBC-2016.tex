@@ -28,7 +28,7 @@
 \IEEEoverridecommandlockouts % Don't forget this command!
 
 \begin{document}
-  \title{Data Driven Approach For Transferring ANT+ Sensors Data}
+  \title{Data Format for Storing ANT+ Sensors Data}
 
   \author{{Petr Je\v{z}ek$^{1}$ Roman Mou\v{c}ek$^{1}$}
 \thanks{$^{1}$Department of Computer Science and Engineering
@@ -58,7 +58,7 @@ ANT+, NIX, sensor, data/metadata storage, EEGBase, data format, eHealth.
 
 
 \section{Introduction}\label{sec:intro}
-Medical treatment of sudden and especially chronic diseases has become more expensive, especially with aging population. For instance, there were around 23 million people affected with heart failure in 2011\cite{bui2011epidemiology}. These people had been usually treated in hospitals for a~long time. The situation has been changing at present because relatively cheap solutions for home treatment have appeared in the market~\cite{4761985, 5333913} and patients can be moved from hospitals to their homes sooner. It brings advantages of a~better comfort for patients and makes treatment generally cheaper.
+Medical treatment of sudden and especially chronic diseases has become more expensive, especially with aging population. For instance, there were around 23 million people in the world affected with heart failure in 2011\cite{bui2011epidemiology}. These people had been usually treated in hospitals for a~long time. The situation has been changing at present because relatively cheap solutions for home treatment have appeared in the market~\cite{4761985, 5333913} and patients can be moved from hospitals to their homes sooner. It brings advantages of a~better comfort for patients and makes treatment generally cheaper.
 
 Home treatment systems use a set of wearable sensors, usually powered from batteries, for monitoring of health or fitness level. They have to operate for a~long time period without possibility to change batteries frequently. That is why new protocols with low energy consumption as ZigBee~\cite{Farahani:2008:ZWN:1457417}, Bluetooth Low Energy~\cite{heydon2012bluetooth} or ANT~\cite{zaloker2014ant} have been developed. Data from these sensors are transferred to remote servers where they are processed and visualized. Body Area Networks (BAN) is an integration of sensors providing a~large data collection of body parameters.  When the number of sensors connected to BAN increases, requirements for the management, long term storage and sustainability of acquired data also increases.
 
@@ -68,6 +68,7 @@ The paper is organized as follows. Section~\ref{sec:state-of-the-art} deals with
 
 \section{State of The Art}\label{sec:state-of-the-art}
 
+There are several approaches that particular aim is to manage Body Area Networks data. These solutions used semantic web technologies or Clouds infrastructures. 
 Three layers ontology describing data from different sensors is presented in~\cite{mehmood2014ontology}. This ontology facilitates development of tools for processing sensor data. A~Sensor-Cloud infrastructure~\cite{5635688} represents physical sensors as virtual sensors stored in a~Cloud infrastructure. The Cloud manages sensors capabilities. So called Semantic Sensor Web \cite{4557983} is based on annotation of sensors data by means of Semantic Web. Such annotated data can be distributed via the Internet.
 
 
