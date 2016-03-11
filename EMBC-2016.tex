@@ -28,7 +28,7 @@
 \IEEEoverridecommandlockouts % Don't forget this command!
 
 \begin{document}
-  \title{Data Driven Approach For Transferring ANT+ Sensor Data}
+  \title{Data Driven Approach For Transferring ANT+ Sensors Data}
 
   \author{{Petr Je\v{z}ek$^{1}$ Roman Mou\v{c}ek$^{1}$}
 \thanks{$^{1}$Department of Computer Science and Engineering
@@ -89,7 +89,7 @@ Due to the absence of a suitable format/data structure for sensor data represent
 
 \subsection{Format Discussion}
 
-Within a working group of International Neuroinformatics Coordinating Facility (INCF)~\cite{wvangeit:Bjaalie:JNeurosci:2007} and its Task Force on Electrophysiology\footnote{http://www.incf.org/programs/datasharing/ electrophysiology-task-force} there were introduced two approaches towards defining a~standard on electrophysiology data. The first one uses the Hierarchical Data Format (HDF5)~\cite{hdf5}. HDF5 is portable and extensible format supporting an unlimited variety of datatypes that is designed for flexible and efficient I/O operations with high volume and complex data. The second approach uses odML~\cite{10.3389/fninf.2011.00016} as a~free form tree-like structure of sections, properties and values suitable for metadata description. This simple, platform-independent and human-readable format also ensures compatibility with other systems developed within the community such as~\cite{10.3389/conf.fninf.2014.18.00029},~\cite{10.3389/conf.fninf.2014.18.00053},~and~\cite{10.3389/conf.fninf.2013.09.00025}. The next step of the task force, merge of these two approaches~\cite{10.3389/conf.fninf.2013.09.00069}, resulted in the proposal of the NIX format~\cite{Stoewer:2014} that provides a~data model for storing experimental data in HDF5 together with its metadata internally organized in the odML format. The NIX format is currently used in Helmholtz~\cite{10.3389/conf.fninf.2013.09.00025} and EEGBase~\cite{ISI:000306821100004} projects. 
+Within a working group of International Neuroinformatics Coordinating Facility (INCF)~\cite{wvangeit:Bjaalie:JNeurosci:2007} and its Task Force on Electrophysiology\footnote{http://www.incf.org/programs/datasharing/ electrophysiology-task-force} there were introduced two approaches towards defining a~standard on electrophysiology data. The first one uses the Hierarchical Data Format (HDF5)~\cite{hdf5}. HDF5 is portable and extensible format supporting an unlimited variety of datatypes that is designed for flexible and efficient I/O operations with high volume and complex data. The second approach uses odML~\cite{10.3389/fninf.2011.00016} as a~free form tree-like structure of sections, properties and values suitable for metadata description. This simple, platform-independent and human-readable format also ensures compatibility with other systems developed within the community such as~\cite{10.3389/conf.fninf.2014.18.00029},~\cite{10.3389/conf.fninf.2014.18.00053},~and~\cite{10.3389/conf.fninf.2013.09.00025}. The next step of the task force, merge of these two approaches~\cite{10.3389/conf.fninf.2013.09.00069}, resulted in the proposal of the NIX format~\cite{Stoewer:2014} that provides a~data model for storing experimental data in HDF5 together with its metadata internally organized in the odML format. The NIX format is currently used in Helmholtz~\cite{10.3389/conf.fninf.2013.09.00025} and EEGBase~\cite{ISI:000306821100004} projects.
 
 Although the NIX format was intended to be used in electrophysiology, its general definition makes it suitable for any time series data.
 
@@ -139,13 +139,11 @@ Once the data and metadata are stored they can be transferred to a suitable data
 
 \section{Conclusions and Future Work}\label{sec:future-work}
 
-Because of raising popularity of sensors for home treatment several low energy standards has been defined. These standards enable data transfer from body sensors into common computers where they can be processed. The one of the most often used is ANT+ supported by significant sensors producers. Although a transfer protocol is defined and several APIs for working with sensors exist there is not defined a standard for storing of sensors data. As long as home treatment systems use proprietary data formats systems can not be easily integrated with sensors. It brings serious complications for designers of such systems. In this paper we described a framework that overcomes these difficulties by designing a framework that maps data from ANT+ sensors into a widely accepted format NIX. This format brings advantages of two layers structure. First the metadata structure uses a flexible format odML and the second data structure is based on HDF5 format. The definition of this two layers of ANT+ sensors is also significant contribution of this work.
+Together with raising popularity of sensors for home treatment several low energy standards have been defined. These standards enable data to be transferred from body sensors into common computers where they are processed and visualized. ANT+ supported by significant sensors producers is one of the most used standards. Although transfer protocols and several APIs for working with sensors are defined, an open standard for storing sensors data are not substantially provided. Since home treatment systems use proprietary data formats, they cannot be easily integrated with variety of sensors. 
 
-The functionality of the framework is described on a simple use case. Our future work is to test it on a large collection of sensors and test the data transfer to a larger collection of neuroinformatics databases. We also plan to invite developers of home treatment systems to integrate the framework into their solutions.
+In this paper we described a framework that overcomes these difficulties by designing a framework that maps data from ANT+ sensors into the open and generally applicable NIX format. The format brings advantages of two layers structure, metadata are structured using the flexible odML format and data are organized using the HDF5 format. Two layered organization of ANT+ sensors data is also a~significant contribution of this work.
 
-Next, when the framework is fully tested we will work on the transformation of data from Blueetooth low energy into the NIX format as well.
-
-
+The functionality of the framework is shown on a~simple use case. Within our future work the testing of a~large collection of sensors followed by data transfer to a few databases is supposed. We also plan to invite developers of home treatment systems to integrate the framework into their solutions. When the framework is fully tested, we start to work on the transformation of data using the Bluetooth low energy standard into the NIX format as well.
 
 % Now here is the reference section.
 
